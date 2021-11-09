@@ -5,7 +5,12 @@ import { TodoContext } from "../App";
 const TodoList = () => {
   const todo = useContext(TodoContext);
 
-  console.log(todo);
+  const onDelete = (id) => {
+    todo.dispatch({
+      type: "delete",
+      payload: id,
+    });
+  };
 
   return (
     <div className='todo'>
@@ -28,7 +33,12 @@ const TodoList = () => {
                     {dt.title}
                   </p>
                   <p>{dt.note}</p>
-                  <button className='todo-button'>Delete</button>
+                  <button
+                    className='todo-button'
+                    onClick={() => onDelete(dt.id)}
+                  >
+                    Delete
+                  </button>
                   <button className='todo-button'>Finish</button>
                 </div>
               )}
@@ -55,7 +65,12 @@ const TodoList = () => {
                     {dt.title}
                   </p>
                   <p>{dt.note}</p>
-                  <button className='todo-button'>Delete</button>
+                  <button
+                    className='todo-button'
+                    onClick={() => onDelete(dt.id)}
+                  >
+                    Delete
+                  </button>
                   <button className='todo-button'>Ongoing</button>
                 </div>
               )}

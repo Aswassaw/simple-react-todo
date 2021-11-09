@@ -23,7 +23,7 @@ const reducer = (state, action) => {
     case "add":
       return [...state, payload];
     case "delete":
-      return initialState;
+      return state.filter((stt) => stt.id !== payload);
     case "finish":
       return initialState;
     default:
