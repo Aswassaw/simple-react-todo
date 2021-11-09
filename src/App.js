@@ -5,26 +5,32 @@ import Input from "./components/Input";
 import TodoList from "./components/Todo";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar";
-import { useState } from "react";
 
 export const TodoContext = createContext();
 
-const initialState = [];
+const initialState = [
+  {
+    id: 1,
+    title: "Todo Satu",
+    note: "Ini adalah todo 1",
+    finish: false,
+  },
+];
 const reducer = (state, action) => {
-  switch (action) {
+  switch (action.type) {
     case "add":
       return initialState;
     case "delete":
       return initialState;
     case "finish":
-      return 0;
+      return initialState;
     default:
       return state;
   }
 };
 
 function App() {
-  const [todo, dispatch] = useState(reducer, initialState);
+  const [todo, dispatch] = useReducer(reducer, initialState);
 
   return (
     <TodoContext.Provider value={{ state: todo, dispatch }}>

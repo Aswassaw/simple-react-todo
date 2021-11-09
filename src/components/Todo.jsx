@@ -1,27 +1,9 @@
 import "./Todo.css";
-import React from "react";
+import React, { useContext } from "react";
+import { TodoContext } from "../App";
 
 const TodoList = () => {
-  const data = [
-    {
-      id: 1,
-      title: "Title 1",
-      note: "Membunuh awaasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssn",
-      finish: false,
-    },
-    {
-      id: 2,
-      title: "Title 2",
-      note: "Api pasti berakhir",
-      finish: true,
-    },
-    {
-      id: 3,
-      title: "Title 3",
-      note: "Banjir perlahan muncul",
-      finish: false,
-    },
-  ];
+  const todo = useContext(TodoContext);
 
   return (
     <div className='todo'>
@@ -30,7 +12,7 @@ const TodoList = () => {
         <p className='todo-title'>Ongoing</p>
         <hr />
         <div className='todo-container'>
-          {data.map((dt) => (
+          {todo.state.map((dt) => (
             <>
               {!dt.finish && (
                 <div className='todo-list' key={dt.id}>
@@ -49,7 +31,7 @@ const TodoList = () => {
         <p className='todo-title'>Finish</p>
         <hr />
         <div className='todo-container'>
-          {data.map((dt) => (
+          {todo.state.map((dt) => (
             <>
               {dt.finish && (
                 <div className='todo-list' key={dt.id}>
