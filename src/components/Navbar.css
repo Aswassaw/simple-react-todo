@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  background-color: aliceblue;
+  background-color: rgb(193, 92, 252);
   padding-left: 3rem;
   padding-right: 3rem;
 }
@@ -16,17 +16,27 @@
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  color: white;
 }
 
 .nav-right {
   justify-content: space-evenly;
   width: 60%;
+  transition: .5s;
 }
+
+.nav-right li:hover {
+  background-color: rgb(174, 52, 245);
+  padding: 5px;
+  border-radius: 5px;
+} 
 
 .nav li {
   list-style: none;
 }
 
+
 .nav a {
   text-decoration: none;
+  color: white;
 }

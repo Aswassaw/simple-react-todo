@@ -1,0 +1,43 @@
+.todo {
+  max-width: 1200px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.todo-ongoing {
+  width: 50%;
+}
+
+.todo-finish {
+  width: 50%;
+}
+
+.todo-title {
+  font-size: 25px;
+  text-align: center;
+}
+
+.todo-container {
+  padding: 10px;
+}
+
+.todo-list {
+  overflow: auto;
+  margin-top: 20px;
+  border: 1px solid violet;
+  padding: 10px;
+}
+
+.todo-button {
+  padding: 5px;
+  margin: 10px 5px 5px 0;
+  background-color: rgb(79, 137, 245);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}

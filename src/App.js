@@ -1,7 +1,7 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Input from "./components/Input";
-import TodoList from "./components/TodoList";
+import TodoList from "./components/Todo";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar";
 
