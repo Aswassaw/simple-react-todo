@@ -12,6 +12,13 @@ const TodoList = () => {
     });
   };
 
+  const onFinish = (id) => {
+    todo.dispatch({
+      type: "finish",
+      payload: id,
+    });
+  };
+
   return (
     <div className='todo'>
       {/* Todo Ongoing */}
@@ -39,7 +46,12 @@ const TodoList = () => {
                   >
                     Delete
                   </button>
-                  <button className='todo-button'>Finish</button>
+                  <button
+                    className='todo-button'
+                    onClick={() => onFinish(dt.id)}
+                  >
+                    Finish
+                  </button>
                 </div>
               )}
             </Fragment>
@@ -71,7 +83,12 @@ const TodoList = () => {
                   >
                     Delete
                   </button>
-                  <button className='todo-button'>Ongoing</button>
+                  <button
+                    className='todo-button'
+                    onClick={() => onFinish(dt.id)}
+                  >
+                    Ongoing
+                  </button>
                 </div>
               )}
             </Fragment>

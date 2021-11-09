@@ -10,7 +10,7 @@ export const TodoContext = createContext();
 
 const initialState = [
   {
-    id: 1,
+    id: "8s2go8e5s3",
     title: "Todo Satu",
     note: "Ini adalah todo 1",
     finish: false,
@@ -25,7 +25,16 @@ const reducer = (state, action) => {
     case "delete":
       return state.filter((stt) => stt.id !== payload);
     case "finish":
-      return initialState;
+      return state.map((stt) => {
+        if (stt.id === payload) {
+          return {
+            ...stt,
+            finish: !stt.finish,
+          };
+        }
+
+        return stt;
+      });
     default:
       return state;
   }
