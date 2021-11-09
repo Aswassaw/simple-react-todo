@@ -1,7 +1,11 @@
 import "./Input.css";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { nanoid } from "nanoid";
+import { TodoContext } from "../App";
 
 const Input = () => {
+  const todo = useContext(TodoContext);
+
   const [formData, setFormData] = useState({
     title: "",
     note: "",
@@ -17,7 +21,19 @@ const Input = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    console.log(formData);
+    todo.dispatch({
+      type: "add",
+      payload: {
+        ...formData,
+        id: nanoid(),
+        finish: false,
+      },
+    });
+
+    setFormData({
+      title: "",
+      note: "",
+    });
   };
 
   return (

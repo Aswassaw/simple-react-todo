@@ -1,9 +1,11 @@
 import "./Todo.css";
-import React, { useContext } from "react";
+import React, { Fragment, useContext } from "react";
 import { TodoContext } from "../App";
 
 const TodoList = () => {
   const todo = useContext(TodoContext);
+
+  console.log(todo);
 
   return (
     <div className='todo'>
@@ -13,16 +15,24 @@ const TodoList = () => {
         <hr />
         <div className='todo-container'>
           {todo.state.map((dt) => (
-            <>
+            <Fragment key={dt.id}>
               {!dt.finish && (
-                <div className='todo-list' key={dt.id}>
-                  <p style={{ fontSize: "22px", fontWeight: "bold", marginBottom: "5px" }}>{dt.title}</p>
+                <div className='todo-list'>
+                  <p
+                    style={{
+                      fontSize: "22px",
+                      fontWeight: "bold",
+                      marginBottom: "5px",
+                    }}
+                  >
+                    {dt.title}
+                  </p>
                   <p>{dt.note}</p>
-                  <button className="todo-button">Delete</button>
-                  <button className="todo-button">Finish</button>
+                  <button className='todo-button'>Delete</button>
+                  <button className='todo-button'>Finish</button>
                 </div>
               )}
-            </>
+            </Fragment>
           ))}
         </div>
       </div>
@@ -32,16 +42,24 @@ const TodoList = () => {
         <hr />
         <div className='todo-container'>
           {todo.state.map((dt) => (
-            <>
+            <Fragment key={dt.id}>
               {dt.finish && (
                 <div className='todo-list' key={dt.id}>
-                  <p style={{ fontSize: "22px", fontWeight: "bold", marginBottom: "5px" }}>{dt.title}</p>
+                  <p
+                    style={{
+                      fontSize: "22px",
+                      fontWeight: "bold",
+                      marginBottom: "5px",
+                    }}
+                  >
+                    {dt.title}
+                  </p>
                   <p>{dt.note}</p>
-                  <button className="todo-button">Delete</button>
-                  <button className="todo-button">Ongoing</button>
+                  <button className='todo-button'>Delete</button>
+                  <button className='todo-button'>Ongoing</button>
                 </div>
               )}
-            </>
+            </Fragment>
           ))}
         </div>
       </div>

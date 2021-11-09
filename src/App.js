@@ -17,9 +17,11 @@ const initialState = [
   },
 ];
 const reducer = (state, action) => {
-  switch (action.type) {
+  const { type, payload } = action;
+
+  switch (type) {
     case "add":
-      return initialState;
+      return [...state, payload];
     case "delete":
       return initialState;
     case "finish":
